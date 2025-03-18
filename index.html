@@ -54,14 +54,27 @@
             <img src="новый морф.gif" class="gif-overlay" alt="GIF 1">
         </div>
     </a>
-
+<style>
+    .image-container {
+        display: flex;
+        flex-direction: column; /* Располагаем элементы в колонку */
+        align-items: center; /* Выравниваем по центру */
+        width: 100%;
+        max-width: 300px; /* Максимальная ширина (можно изменить) */
+    }
+    .background-img {
+        width: 100%;
+        display: block;
+        border-radius: 10px;
+    }
+    .gif-overlay {
+        width: 100%; /* GIF будет той же ширины, что и фоновая картинка */
+        height: auto; /* Сохраняем пропорции */
+        margin-top: 5px; /* Отступ между картинкой и GIF */
+    }
+</style>
     <!-- Вторая картинка -->
-    <a href="background2.jpg" data-pswp-width="1000" data-pswp-height="600">
-        <div class="image-container">
-            <img src="background2.jpg" class="background-img" alt="Фон 2">
-            <img src="animation2.gif" class="gif-overlay" alt="GIF 2">
-        </div>
-    </a>
+    
 </div>
 
 <!-- PhotoSwipe (скрипт для зума и листания) -->
