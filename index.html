@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Картинка с GIF и Зумом</title>
+
+    <!-- PhotoSwipe стили (для зума и листания) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe.min.css">
+
+    <style>
+        body {
+            text-align: center;
+            background: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .gallery {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .image-container {
+            position: relative;
+            width: 300px;
+            cursor: zoom-in;
+        }
+        .background-img {
+            width: 100%;
+            display: block;
+            border-radius: 10px;
+        }
+        .gif-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 100px;
+            height: auto;
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body>
+
+<h2>Картинка с GIF-эффектом и Зумом</h2>
+
+<div class="gallery" id="gallery">
+    <!-- Первая картинка -->
+    <a href="background1.jpg" data-pswp-width="1000" data-pswp-height="600">
+        <div class="image-container">
+            <img src="test1.png" class="background-img" alt="Фон 1">
+            <img src="новый морф.gif" class="gif-overlay" alt="GIF 1">
+        </div>
+    </a>
+
+    <!-- Вторая картинка -->
+    <a href="background2.jpg" data-pswp-width="1000" data-pswp-height="600">
+        <div class="image-container">
+            <img src="background2.jpg" class="background-img" alt="Фон 2">
+            <img src="animation2.gif" class="gif-overlay" alt="GIF 2">
+        </div>
+    </a>
+</div>
+
+<!-- PhotoSwipe (скрипт для зума и листания) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe.umd.min.js"></script>
+<script>
+    const lightbox = new PhotoSwipe.Lightbox({
+        gallery: "#gallery",
+        children: "a",
+        pswpModule: () => import('https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe.esm.min.js')
+    });
+    lightbox.init();
+</script>
+
+</body>
+</html>
