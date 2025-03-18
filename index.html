@@ -3,10 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Картинка с GIF и Зумом</title>
-
-    <!-- Подключаем стили PhotoSwipe -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe.min.css">
+    <title>Увеличенная картинка и GIF</title>
 
     <style>
         body {
@@ -23,8 +20,8 @@
         }
         .image-container {
             position: relative;
-            width: 300px;
-            cursor: zoom-in;
+            width: 300%; /* Увеличиваем контейнер в 3 раза */
+            cursor: default;
         }
         .background-img {
             width: 100%;
@@ -35,7 +32,7 @@
             width: 100%;
             display: block;
             border-radius: 10px;
-            margin-top: 10px; /* Отступ между картинкой и GIF */
+            margin-top: 0; /* Отсутствие отступа между картинкой и GIF */
         }
     </style>
 </head>
@@ -44,27 +41,14 @@
 <h2>made_by_MusicFord</h2>
 
 <div class="gallery" id="gallery">
-    <!-- Обёртка для картинки и GIF, которые будут увеличиваться вместе -->
-    <a href="test1.jpg" data-pswp-width="1000" data-pswp-height="800">
-        <div class="image-container">
-            <img src="test1.jpg" class="background-img" alt="Фон 1">
-            <img src="новый морф.gif" class="gif-overlay" alt="GIF 1">
-        </div>
-    </a>
+    <!-- Один контейнер для картинки и GIF -->
+    <div class="image-container">
+        <!-- Картинка -->
+        <img src="test1.jpg" class="background-img" alt="Фон 1">
+        <!-- GIF -->
+        <img src="новый морф.gif" class="gif-overlay" alt="GIF 1">
+    </div>
 </div>
-
-<!-- Подключаем PhotoSwipe и его функциональность -->
-<script type="module">
-    import PhotoSwipeLightbox from "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe-lightbox.esm.min.js";
-
-    const lightbox = new PhotoSwipeLightbox({
-        gallery: "#gallery",
-        children: "a",
-        pswpModule: () => import("https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe.esm.min.js")
-    });
-
-    lightbox.init();
-</script>
 
 </body>
 </html>
