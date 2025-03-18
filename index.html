@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Картинка с GIF и Зумом</title>
 
-    <!-- PhotoSwipe стили (для зума и листания) -->
+    <!-- PhotoSwipe стили -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe.min.css">
 
     <style>
@@ -22,11 +22,8 @@
             gap: 10px;
         }
         .image-container {
-            display: flex;
-            flex-direction: column; /* Располагаем элементы в колонку */
-            align-items: center; /* Выравниваем всё по центру */
-            width: 100%;
-            max-width: 300px; /* Максимальная ширина */
+            position: relative;
+            width: 300px;
             cursor: zoom-in;
         }
         .background-img {
@@ -35,9 +32,14 @@
             border-radius: 10px;
         }
         .gif-overlay {
-            width: 100%; /* GIF будет той же ширины, что и фоновая картинка */
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
             display: block;
-            margin-top: 5px; /* Отступ между картинкой и GIF */
+            border-radius: 10px;
+            pointer-events: none; /* Запрещаем взаимодействие с GIF */
         }
     </style>
 </head>
@@ -46,7 +48,7 @@
 <h2>made_by_MusicFord</h2>
 
 <div class="gallery" id="gallery">
-    <!-- Первая картинка -->
+    <!-- Первая картинка с GIF, которые будут увеличиваться вместе -->
     <a href="test1.jpg" data-pswp-width="1000" data-pswp-height="600">
         <div class="image-container">
             <img src="test1.jpg" class="background-img" alt="Фон 1">
@@ -55,7 +57,7 @@
     </a>
 </div>
 
-<!-- PhotoSwipe (скрипт для зума и листания) -->
+<!-- Подключаем PhotoSwipe и его функциональность -->
 <script type="module">
     import PhotoSwipeLightbox from "https://cdnjs.cloudflare.com/ajax/libs/photoswipe/5.3.2/photoswipe-lightbox.esm.min.js";
 
